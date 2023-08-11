@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: my-batch-job
+spec:
+  schedule: '* * * * *'
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          nodeName: i-05706a53cf3032ed6
+          containers:
+            - name: my-batch-container
+              image: 'kaushikseetharam/kubernetes_lab:latest'
+          restartPolicy: OnFailure
+
